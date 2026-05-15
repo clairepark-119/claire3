@@ -4,30 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Claire Park | Health Manager Portfolio</title>
+    <title>CLAIRE PARK | Smart Health Strategist</title>
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Noto+Sans+KR:wght@300;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+KR:wght@300;500;900&display=swap');
 
         :root {
-            --claire-pink: #ff9fb5;
-            --claire-purple: #c3b5ff;
-            --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #f3e8ff 100%);
+            --primary: #007AFF; /* Electric Blue */
+            --bg: #F2F2F7;
+            --card: #FFFFFF;
+            --text: #1C1C1E;
         }
 
         body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background: var(--bg-gradient);
-            color: #1c1c1e;
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
             padding: 0;
             height: 100vh;
             overflow: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* 아이폰 세이프 에어리어 최적화 */
+        /* iPhone 17 Pro Optimization */
         .safe-top { height: env(safe-area-inset-top); min-height: 44px; }
         .safe-bottom { height: env(safe-area-inset-bottom); min-height: 20px; }
 
@@ -35,80 +37,101 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            max-width: 430px; /* iPhone Pro Max 너비 제한 */
+            max-width: 430px; 
             margin: 0 auto;
             position: relative;
         }
 
-        /* 글래스모피즘 효과 */
+        /* MZ Minimalist UI - Glassmorphism */
         .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
         }
 
-        .tab-content {
+        .content-scroll {
             flex: 1;
             overflow-y: auto;
-            padding: 20px;
-            padding-bottom: 120px; /* 네비게이션 공간 */
+            padding: 28px;
+            padding-bottom: 140px; 
             scroll-behavior: smooth;
         }
 
-        /* 하단 탭바 */
-        .nav-bar {
+        /* Dark Floating Dock */
+        .nav-dock {
             position: fixed;
-            bottom: calc(env(safe-area-inset-bottom) + 15px);
+            bottom: calc(env(safe-area-inset-bottom) + 20px);
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
-            max-width: 380px;
-            height: 75px;
-            border-radius: 40px;
+            max-width: 360px;
+            height: 72px;
+            background: rgba(10, 10, 12, 0.92);
+            backdrop-filter: blur(20px);
+            border-radius: 36px;
             display: flex;
             justify-content: space-around;
             align-items: center;
             z-index: 100;
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
         }
 
-        .nav-item {
+        .nav-icon {
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: #94a3b8;
-            transition: all 0.3s;
+            color: #636366;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .nav-item.active {
-            color: #a855f7;
-            transform: scale(1.1);
+        .nav-icon.active {
+            color: #FFFFFF;
+            transform: translateY(-5px);
         }
 
-        .nav-item span {
-            font-size: 10px;
-            font-weight: 700;
-            margin-top: 4px;
+        .nav-icon span {
+            font-size: 9px;
+            font-weight: 800;
+            margin-top: 5px;
+            letter-spacing: -0.2px;
         }
 
-        /* 젤리 버튼 스타일 */
-        .jelly-card {
-            background: white;
+        /* Pro Card Design */
+        .pro-card {
+            background: var(--card);
             border-radius: 30px;
-            padding: 24px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: transform 0.2s;
+            padding: 26px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 0.5px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
         }
 
-        .jelly-card:active {
+        .pro-card:active {
             transform: scale(0.97);
+            background: #FAFAFA;
         }
 
-        /* 스크롤바 숨기기 */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Tech Badges */
+        .badge {
+            background: #F2F2F7;
+            color: #1C1C1E;
+            padding: 7px 14px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(to right, #007AFF, #5856D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -116,41 +139,39 @@
 <div class="app-container">
     <div class="safe-top"></div>
 
-    <!-- Header -->
-    <header className="px-6 py-4 flex items-center justify-between">
-        <div class="px-6 py-4 flex justify-between items-end">
-            <div>
-                <h1 class="text-2xl font-black text-purple-700 tracking-tighter leading-none">CLAIRE PARK</h1>
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Health & Safety Expert</p>
-            </div>
-            <div class="w-10 h-10 glass rounded-2xl flex items-center justify-center shadow-sm">
-                <i data-lucide="activity" class="text-pink-500 w-5 h-5"></i>
-            </div>
+    <!-- Minimal Header -->
+    <header class="px-7 py-6 flex justify-between items-center">
+        <div>
+            <h1 class="text-2xl font-[900] text-[#1C1C1E] tracking-tighter">CLAIRE PARK.</h1>
+            <p class="text-[9px] font-black text-blue-600 uppercase tracking-[0.3em] mt-1.5">Future Health Lab</p>
+        </div>
+        <div class="w-11 h-11 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center">
+            <i data-lucide="sparkles" class="text-blue-500 w-5 h-5 fill-blue-500"></i>
         </div>
     </header>
 
-    <!-- Tab Contents -->
-    <div id="content" class="tab-content no-scrollbar">
-        <!-- Content will be injected here via JS -->
+    <!-- Main Content -->
+    <div id="main-view" class="content-scroll no-scrollbar">
+        <!-- JS content will inject here -->
     </div>
 
-    <!-- Bottom Nav -->
-    <nav class="nav-bar glass">
-        <div class="nav-item active" onclick="switchTab('home', this)">
+    <!-- Dark Dock Navigation -->
+    <nav class="nav-dock">
+        <div class="nav-icon active" id="tab-home" onclick="navTo('home')">
             <i data-lucide="home"></i>
-            <span>홈</span>
+            <span>HOME</span>
         </div>
-        <div class="nav-item" onclick="switchTab('ai', this)">
-            <i data-lucide="shield-check"></i>
-            <span>AI분석</span>
+        <div class="nav-icon" id="tab-ai" onclick="navTo('ai')">
+            <i data-lucide="brain-circuit"></i>
+            <span>AI TOOL</span>
         </div>
-        <div class="nav-item" onclick="switchTab('warehouse', this)">
-            <i data-lucide="archive"></i>
-            <span>창고</span>
+        <div class="nav-icon" id="tab-vault" onclick="navTo('vault')">
+            <i data-lucide="folder-kanban"></i>
+            <span>VAULT</span>
         </div>
-        <div class="nav-item" onclick="switchTab('profile', this)">
+        <div class="nav-icon" id="tab-me" onclick="navTo('me')">
             <i data-lucide="user"></i>
-            <span>프로필</span>
+            <span>ABOUT</span>
         </div>
     </nav>
 
@@ -158,123 +179,179 @@
 </div>
 
 <script>
-    // Lucide 아이콘 초기화
+    // Initialize Lucide Icons
     lucide.createIcons();
 
-    // 탭 데이터 및 렌더링
-    const contents = {
+    const views = {
         home: `
-            <div class="animate-in slide-in-from-bottom-5 duration-500">
-                <h2 class="text-3xl font-black mb-1 mt-4">반가워요, <span class="text-purple-600">클레어</span>입니다.</h2>
-                <p class="text-slate-500 font-medium mb-8 italic">"건강한 일터, 데이터로 증명합니다."</p>
+            <div class="animate-in fade-in slide-in-from-bottom-6 duration-700">
+                <div class="mb-10 mt-2 px-1">
+                    <h2 class="text-[42px] font-[900] leading-[1.05] tracking-tight text-slate-900">
+                        Beyond Care,<br/>
+                        <span class="text-gradient">Health Innovation.</span>
+                    </h2>
+                    <p class="text-slate-400 font-bold mt-5 text-[15px] leading-relaxed">
+                        데이터와 기술로 근로자의 일상을<br/>
+                        더 가치 있게 디자인합니다.
+                    </p>
+                </div>
                 
                 <div class="grid grid-cols-2 gap-4 mb-6">
-                    <div class="jelly-card bg-white">
-                        <i data-lucide="heart" class="text-pink-500 mb-2"></i>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase">건강상담</p>
-                        <p class="text-2xl font-black">1,240건</p>
+                    <div class="pro-card">
+                        <i data-lucide="heart" class="text-red-500 mb-3 w-6 h-6 fill-red-500"></i>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">Monitoring</p>
+                        <p class="text-2xl font-[900]">Live</p>
                     </div>
-                    <div class="jelly-card bg-white">
-                        <i data-lucide="check-circle" class="text-purple-500 mb-2"></i>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase">법규준수</p>
-                        <p class="text-2xl font-black">100%</p>
+                    <div class="pro-card">
+                        <i data-lucide="database" class="text-blue-500 mb-3 w-6 h-6 fill-blue-500"></i>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">Health Data</p>
+                        <p class="text-2xl font-[900]">Cloud</p>
                     </div>
                 </div>
 
-                <div class="jelly-card bg-gradient-to-br from-purple-600 to-indigo-700 text-white p-8">
-                    <h3 class="font-bold text-xl mb-2">2026 보건 프로젝트</h3>
-                    <p class="text-sm opacity-80 mb-6">스마트 웨어러블을 활용한 근로자 실시간 피로도 모니터링 시스템 구축 중</p>
-                    <button class="w-full py-3 bg-white text-purple-700 rounded-2xl font-black text-sm">상세보기</button>
+                <div class="pro-card bg-[#1C1C1E] text-white p-8 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="font-black text-xl mb-1">Weekly Insight</h3>
+                        <p class="text-xs opacity-50 mb-7 font-medium">실시간 유해 요인 분석 리포트</p>
+                        <button class="px-5 py-3 bg-white text-black rounded-xl font-[900] text-[11px] active:scale-95 transition-all">
+                            Check Dashboard
+                        </button>
+                    </div>
+                    <div class="absolute -right-2 -bottom-2 opacity-10">
+                        <i data-lucide="activity" class="w-24 h-24"></i>
+                    </div>
                 </div>
             </div>
         `,
         ai: `
-            <div class="animate-in slide-in-from-right-5 duration-500">
-                <h2 class="text-2xl font-black mb-6">AI 위험성평가 <span class="text-purple-600">Pro</span></h2>
-                <div class="jelly-card bg-white p-0 overflow-hidden mb-6">
-                    <div class="aspect-video bg-slate-100 flex items-center justify-center border-b border-slate-50">
-                        <i data-lucide="smartphone" class="w-16 h-16 text-purple-200"></i>
+            <div class="animate-in fade-in slide-in-from-right-8 duration-500">
+                <h2 class="text-3xl font-[900] mb-8 tracking-tight px-1">AI Engine.</h2>
+                <div class="pro-card p-0 overflow-hidden mb-6 shadow-2xl border-none">
+                    <div class="aspect-square bg-slate-900 flex items-center justify-center relative">
+                        <i data-lucide="shield-alert" class="w-20 h-20 text-blue-500 animate-pulse"></i>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="h-1 bg-white/20 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-500 w-[75%]"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="font-black text-lg mb-2">현장 유해인자 스캔</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed mb-4">사진 한 장으로 도장, 용접, 분진 위험을 즉시 분석하고 위험성평가표를 자동 생성합니다.</p>
-                        <button class="w-full py-4 bg-slate-900 text-white rounded-2xl font-black active:scale-95 transition-all">분석 엔진 가동</button>
+                    <div class="p-8 bg-white">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-[900] text-xl">Hazard Scanner</h4>
+                            <span class="text-[10px] font-black text-blue-600 bg-blue-50 px-2 py-1 rounded">PRO</span>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6 font-medium">사진 한 장으로 공정의 위험을 정밀 스캔하고 산안법 기준 리포트를 자동 생성합니다.</p>
+                        <button class="w-full py-5 bg-black text-white rounded-2xl font-[900] tracking-tight active:scale-95 transition-all shadow-xl">Start Analysis</button>
                     </div>
                 </div>
             </div>
         `,
-        warehouse: `
-            <div class="animate-in slide-in-from-right-5 duration-500">
-                <h2 class="text-2xl font-black mb-6">디지털 <span class="text-purple-600">창고</span></h2>
-                <div class="relative mb-6">
-                    <input type="text" placeholder="서식 또는 지침 검색" class="w-full py-4 pl-12 pr-4 bg-white rounded-2xl border-none shadow-sm text-sm outline-none focus:ring-2 focus:ring-purple-200" />
-                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 w-5 h-5"></i>
+        vault: `
+            <div class="animate-in fade-in slide-in-from-right-8 duration-500">
+                <h2 class="text-3xl font-[900] mb-8 tracking-tight px-1">Resource Vault.</h2>
+                <div class="relative mb-8 px-1">
+                    <input type="text" placeholder="Search resources..." class="w-full py-5 pl-14 pr-6 bg-white rounded-3xl border-none shadow-sm text-sm font-bold outline-none focus:ring-2 focus:ring-blue-500" />
+                    <i data-lucide="search" class="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 w-5 h-5"></i>
                 </div>
-                <div class="space-y-3">
-                    <div class="jelly-card flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center"><i data-lucide="file-text" class="text-purple-500 w-5 h-5"></i></div>
+                <div class="space-y-4">
+                    <div class="pro-card flex items-center justify-between py-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800"><i data-lucide="file-check"></i></div>
                             <div>
-                                <p class="font-bold text-sm">특검 유해인자 목록</p>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold">PDF • 1.2MB</p>
+                                <p class="font-black text-sm">MSDS 관리 지침</p>
+                                <p class="text-[10px] text-slate-400 font-black uppercase">Guide v1.2</p>
                             </div>
                         </div>
-                        <i data-lucide="download" class="text-slate-300 w-5 h-5"></i>
+                        <i data-lucide="download" class="text-blue-500 w-5 h-5"></i>
                     </div>
-                    <div class="jelly-card flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center"><i data-lucide="clipboard" class="text-pink-500 w-5 h-5"></i></div>
+                    <div class="pro-card flex items-center justify-between py-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800"><i data-lucide="clipboard-list"></i></div>
                             <div>
-                                <p class="font-bold text-sm">보호구 지급 대장 양식</p>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold">XLSX • 88KB</p>
+                                <p class="font-black text-sm">보건 교육 템플릿</p>
+                                <p class="text-[10px] text-slate-400 font-black uppercase">Standard File</p>
                             </div>
                         </div>
-                        <i data-lucide="download" class="text-slate-300 w-5 h-5"></i>
+                        <i data-lucide="download" class="text-blue-500 w-5 h-5"></i>
                     </div>
                 </div>
             </div>
         `,
-        profile: `
-            <div class="animate-in slide-in-from-right-5 duration-500 pt-6 flex flex-col items-center">
-                <div class="w-32 h-32 rounded-[2.5rem] bg-white shadow-xl p-1 mb-6 border-4 border-white overflow-hidden">
-                    <div class="w-full h-full bg-purple-100 flex items-center justify-center text-purple-400">
-                        <i data-lucide="user" class="w-12 h-12"></i>
+        me: `
+            <div class="animate-in fade-in slide-in-from-right-8 duration-500 pt-2">
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-8">
+                        <div class="w-36 h-36 rounded-[44px] bg-white shadow-2xl p-1.5 border-none overflow-hidden transform rotate-2">
+                            <div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300">
+                                <i data-lucide="user" class="w-16 h-16"></i>
+                            </div>
+                        </div>
+                        <div class="absolute -top-3 -right-3 bg-blue-600 text-white p-3 rounded-2xl shadow-xl border-4 border-[#F2F2F7]">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
                     </div>
-                </div>
-                <h2 class="text-2xl font-black mb-1 text-slate-800">Claire Park</h2>
-                <p class="text-sm font-bold text-purple-500 uppercase tracking-widest mb-8 text-center">Industrial Health Professional</p>
-                
-                <div class="flex gap-4 mb-10">
-                    <div class="w-12 h-12 glass rounded-2xl flex items-center justify-center text-slate-600"><i data-lucide="mail"></i></div>
-                    <div class="w-12 h-12 glass rounded-2xl flex items-center justify-center text-slate-600"><i data-lucide="link-2"></i></div>
-                    <div class="w-12 h-12 glass rounded-2xl flex items-center justify-center text-slate-600"><i data-lucide="instagram"></i></div>
-                </div>
+                    
+                    <h2 class="text-3xl font-[900] mb-3 tracking-tighter">Claire Park</h2>
+                    <div class="flex flex-wrap justify-center gap-2 mb-10">
+                        <span class="badge">RN (간호사)</span>
+                        <span class="badge">산업위생관리기사</span>
+                        <span class="badge">Health Specialist</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3 w-full mb-10 px-1">
+                        <a href="https://www.instagram.com/_zzipark" target="_blank" class="pro-card flex flex-col items-center gap-3 py-6 no-underline bg-white">
+                            <i data-lucide="instagram" class="text-pink-500 w-8 h-8"></i>
+                            <span class="text-[10px] font-[900] text-slate-400 uppercase tracking-widest">Connect</span>
+                        </a>
+                        <a href="mailto:claire@example.com" class="pro-card flex flex-col items-center gap-3 py-6 no-underline bg-white">
+                            <i data-lucide="mail" class="text-blue-600 w-8 h-8"></i>
+                            <span class="text-[10px] font-[900] text-slate-400 uppercase tracking-widest">Email</span>
+                        </a>
+                    </div>
 
-                <div class="w-full space-y-4">
-                    <div class="jelly-card">
-                        <h4 class="font-bold text-xs text-slate-400 uppercase mb-2">보건 핵심 역량</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-2 text-sm font-medium"><i data-lucide="award" class="w-4 h-4 text-purple-500"></i> 산업보건 지도사 자격</li>
-                            <li class="flex items-center gap-2 text-sm font-medium"><i data-lucide="award" class="w-4 h-4 text-purple-500"></i> 데이터 기반 건강 사후관리 시스템</li>
-                            <li class="flex items-center gap-2 text-sm font-medium"><i data-lucide="award" class="w-4 h-4 text-purple-500"></i> 중대재해 보건 리스크 진단</li>
-                        </ul>
+                    <div class="w-full space-y-4 text-left">
+                        <div class="pro-card">
+                            <h4 class="font-black text-xs text-slate-400 uppercase mb-6 flex items-center gap-2 tracking-[0.2em]">
+                                <i data-lucide="terminal" class="w-4 h-4"></i> Core Stack
+                            </h4>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 w-2 h-2 rounded-full bg-blue-600 shrink-0 shadow-[0_0_8px_rgba(0,122,255,0.6)]"></div>
+                                    <p class="text-[13px] font-bold leading-relaxed text-slate-700">임상 경력(RN) 기반의 정밀 건강 상담 및 근로자 맞춤형 사후관리 솔루션</p>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 w-2 h-2 rounded-full bg-blue-600 shrink-0 shadow-[0_0_8px_rgba(0,122,255,0.6)]"></div>
+                                    <p class="text-[13px] font-bold leading-relaxed text-slate-700">산업위생 공학적 지식을 활용한 현장 유해인자 측정 및 작업 환경 개선 설계</p>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 w-2 h-2 rounded-full bg-blue-600 shrink-0 shadow-[0_0_8px_rgba(0,122,255,0.6)]"></div>
+                                    <p class="text-[13px] font-bold leading-relaxed text-slate-700">디지털 툴과 AI를 활용한 보건 행정 자동화 및 선제적 리스크 예측 모델링</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         `
     };
 
-    function switchTab(tab, el) {
-        document.getElementById('content').innerHTML = contents[tab];
-        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-        el.classList.add('active');
+    function navTo(view) {
+        // Haptic feedback
+        if (navigator.vibrate) navigator.vibrate(10);
+        
+        document.getElementById('main-view').innerHTML = views[view];
+        
+        // Update Nav Active State
+        document.querySelectorAll('.nav-icon').forEach(item => item.classList.remove('active'));
+        document.getElementById('tab-' + view).classList.add('active');
+        
         lucide.createIcons();
-        document.getElementById('content').scrollTop = 0;
+        document.getElementById('main-view').scrollTop = 0;
     }
 
-    // 초기 홈 화면 로드
+    // Default View
     window.onload = () => {
-        document.getElementById('content').innerHTML = contents.home;
+        document.getElementById('main-view').innerHTML = views.home;
         lucide.createIcons();
     };
 </script>
